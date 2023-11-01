@@ -8,6 +8,7 @@ import './config/database.js'
 
 // Import Routes
 import { router as sampleRouter } from './routes/sampleRoute.js'
+import { router as adminAuthRouter} from './routes/adminAuth.js'
 
 // Create express app
 const app = express();
@@ -18,7 +19,7 @@ app.use(express.json())
 
 // Routes
 app.use('/api/v1/sample', sampleRouter)
-
+app.use('/api/v1/admin', adminAuthRouter)
 
 // Handle errors
 app.use(function (req, res, next) {

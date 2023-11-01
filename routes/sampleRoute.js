@@ -1,12 +1,15 @@
 import { Router } from 'express'
 import * as sampleCtrl from '../controllers/sample.js'
+import { decodeUserFromToken, checkAuth } from '../middleware/auth.js'
+
 
 const router = Router()
 
-/*---------- Public Routes ----------*/
-router.post('/', sampleCtrl.create)
-router.get('/', sampleCtrl.index)
-router.delete('/:id', sampleCtrl.remove)
+router.use(decodeUserFromToken)
+/*---------- Protected Routes ----------*/
+router.post('/', checkAuth, sampleCtrl.create)
+router.get('/', checkAuth, sampleCtrl.index)
+router.delete('/:id', checkAuth, sampleCtrl.remove)
 
 
 export { router }

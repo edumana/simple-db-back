@@ -11,7 +11,6 @@ function create(req, res) {
 }
 
 function index(req, res) {
-  console.log('in index')
   Sample.find({})
   .then(results => res.status(200).json(results))
   .catch(err =>{
