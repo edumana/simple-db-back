@@ -23,14 +23,14 @@ app.use(express.json())
 
 
 // Interview Routes
-app.use('api/v1/author', authorRouter)
-app.use('api/v1/book', bookRouter)
-app.use('api/v1/clinician', clinicianRouter)
-app.use('api/v1/booking', bookingRouter)
+app.use('/api/v1/author', authorRouter)
+app.use('/api/v1/book', bookRouter)
+app.use('/api/v1/clinician', clinicianRouter)
+app.use('/api/v1/booking', bookingRouter)
 
 // Test Routes
-app.use('api/v1/sample', sampleRouter)
-app.use('api/v1/admin', adminAuthRouter)
+app.use('/api/v1/sample', sampleRouter)
+app.use('/api/v1/admin', adminAuthRouter)
 
 // Handle errors
 app.use(function (req, res, next) {

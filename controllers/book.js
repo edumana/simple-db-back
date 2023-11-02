@@ -23,6 +23,7 @@ function indexNoPopulate(req, res) {
 }
 
 function index(req, res) {
+  console.log('In Index')
   Book.find({})
   .populate([{ path: 'author', model: 'Author' }])
   .then(books => {
